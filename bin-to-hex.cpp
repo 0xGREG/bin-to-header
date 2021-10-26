@@ -36,7 +36,7 @@ int main(int argc, char** argv)
         }
 
         source_size = read_stream.tellg();
-        source = new char[source_size];
+        source = new char[static_cast<size_t>(source_size)];
 
         read_stream.seekg(0, std::ios::beg);
         read_stream.read(source, source_size);
