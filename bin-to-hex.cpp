@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     // read file into process
 
     char* source;
-    std::streampos source_size;
+    std::streamsize source_size;
 
     try
     {
@@ -35,7 +35,10 @@ int main(int argc, char** argv)
             return -6;
         }
 
-        source_size = read_stream.tellg();
+        read_stream.ignore(std::numeric_limits<std::streamsize>::max());
+        source_size = read_stream.gcount();
+        read_stream.clear();
+
         source = new char[static_cast<size_t>(source_size)];
 
         read_stream.seekg(0, std::ios::beg);
@@ -55,7 +58,7 @@ int main(int argc, char** argv)
     
     output << "#pragma once\n\nnamespace binary {\n\tunsigned char buffer[] = {";
 
-    constexpr size_t line_max = 40;
+    constexpr size_t line_max = 24;
 
     for (auto i = 0; i < source_size; i++)
     {
