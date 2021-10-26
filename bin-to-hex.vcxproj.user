@@ -4,4 +4,8 @@
     <LocalDebuggerCommandArguments>$(ProjectDir)test_files\test.sys $(ProjectDir)test_files\test.hpp</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>$(ProjectDir)test_files\test.sys $(ProjectDir)test_files\test.hpp</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
