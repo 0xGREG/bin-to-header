@@ -3,6 +3,8 @@
 #include <filesystem>
 #include <sstream>
 
+#pragma warning(disable:6385)
+
 int main(int argc, char** argv)
 {
     // check for valid argument count
@@ -91,4 +93,10 @@ int main(int argc, char** argv)
 
     // free output memory
     output.clear();
+
+    // success
+
+    std::cout << "success: file dumped to header file" << std::endl;
+
+    return 0;
 }
